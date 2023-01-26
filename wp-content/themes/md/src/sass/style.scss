@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@use 'parts/wp-themename'; // WordPressテーマ名
 @use 'parts/appear'; // appearアニメーション
 @use 'parts/hero-slider'; // 画面トップスライダー
 @use 'parts/flow-slider'; // ステップスライダー
