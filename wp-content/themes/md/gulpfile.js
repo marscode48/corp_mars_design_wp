@@ -1,3 +1,6 @@
+//----------------------------------------------------------------------
+//  モジュール読み込み
+//----------------------------------------------------------------------
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
 const $ = loadPlugins();
@@ -10,6 +13,9 @@ const imageminPngquant = require('imagemin-pngquant');
 const browserSync = require('browser-sync').create();
 const isProd = process.env.NODE_ENV === "production";
 
+//----------------------------------------------------------------------
+//  関数定義（WordPress用 テーマ直下に出力、browserSyncのproxyにローカルを設定）
+//----------------------------------------------------------------------
 function icon(done) {
   for (let size of sizes){
     let width = size[0];
@@ -24,7 +30,7 @@ function icon(done) {
       upscale: false
     }))
     .pipe($.rename(`favicon-${width}x${height}.png`))
-    .pipe(dest('./dist/images/icon'));
+    .pipe(dest('./images/icon'));
   }
   done();
 }
@@ -37,7 +43,7 @@ function resize() {
       crop: true,
       upscale: false,
     }))
-    .pipe(dest("./src/images/"));
+    .pipe(dest("./src/images"));
 }
 
 function imagemin() {
@@ -56,7 +62,7 @@ function imagemin() {
       ]
     })
   ]))
-  .pipe(dest("./dist/images/"));
+  .pipe(dest("./images"));
 }
 
 function styles() {
@@ -71,9 +77,9 @@ function styles() {
     .pipe($.autoprefixer({
       cascade: true
     }))
-    .pipe($.if(!isProd, $.sourcemaps.write('.')))
+    .pipe($.if(!isProd, $.sourcemaps.write('./')))
     .pipe($.if(isProd, $.postcss([cssnano({ autoprefixer: false })])))
-    .pipe(dest('./dist/css'))
+    .pipe(dest('./'))
     .pipe($.debug({title: 'scss dest:'}));
 }
 
@@ -81,9 +87,9 @@ function scripts() {
   return src('./src/js/**/*.js')
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.babel())
-    .pipe($.if(!isProd, $.sourcemaps.write('.')))
+    .pipe($.if(!isProd, $.sourcemaps.write('./')))
     .pipe($.if(isProd, $.uglify()))
-    .pipe(dest('./dist/js'));
+    .pipe(dest('./js'));
 }
 
 function lint() {
@@ -101,16 +107,22 @@ function extras() {
       './src/css/**'
   ], {
     base: 'src'
-  }).pipe(dest('./dist'));
+  }).pipe(dest('./'));
 }
 
 function clean() {
-  return del(['./dist']);
+  return del([
+    './css',
+    './images',
+    './js',
+    './*.html',
+    './*.php'
+  ]);
 }
 
 function startAppServer() {
   browserSync.init({
-    server: './dist'
+    proxy : "marsdesign.local", // ローカルに合わせる
   });
 
   watch('./src/sass/**/*.scss', styles);
@@ -126,6 +138,9 @@ function startAppServer() {
   ]).on('change', browserSync.reload);
 }
 
+//----------------------------------------------------------------------
+//  タスク定義
+//----------------------------------------------------------------------
 const build = series(clean, parallel(imagemin, extras, styles, series(lint, scripts)));
 const serve = series(build, startAppServer);
 
