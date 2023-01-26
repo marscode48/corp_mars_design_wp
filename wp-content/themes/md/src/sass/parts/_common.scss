@@ -1,0 +1,261 @@
+@use "../globals" as *;
+/* 共通クラス */
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: $cWhite;
+  color: $cBlack;
+  @extend .font-md;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  color: $cBlack;
+  @extend .font-md;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* マージン */
+.mb-sm {
+  margin-bottom: 34px !important;
+
+  @include mq(lg) {
+    margin-bottom: 50px !important;
+  }
+
+}
+
+.mb-lg {
+  margin-bottom: 80px !important;
+
+  @include mq(lg) {
+    margin-bottom: 120px !important;
+  }
+}
+
+/* パディング */
+.pb-sm {
+  padding-bottom: 20px !important;
+}
+
+.pb-lg {
+  padding-bottom: 80px !important;
+}
+
+/* フォント */
+.font-sm {
+  font-size: 0.75rem;
+}
+.font-md {
+font-size: 0.875rem;
+}
+.font-lr {
+  font-size: 1.125rem;
+}
+.font-lg {
+  font-size: 1.5rem;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: $contentMaxWidth;
+}
+
+.logo {
+  width: 130px;
+  /* 余白消し */
+  line-height: 1px;
+
+  & a {
+    display: block;
+  }
+
+  @include mq(lg) {
+    width: 180px;
+  }
+}
+
+.section-title {
+  margin-bottom: 58px;
+  font-weight: normal;
+  line-height: 1;
+  text-align: center;
+
+  @include mq(lg) {
+    margin-bottom: 70px;
+  }
+
+  & .en {
+    display: block;
+    @extend .font-lg;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+
+    @include mq(lg) {
+      font-size: 2rem;
+    }
+  }
+
+  & .ja {
+    display: block;
+    @extend .font-sm;
+
+    @include mq(lg) {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1;
+  text-align: center;
+  font-weight: normal;
+  @extend .font-md;
+
+  @include mq(lg) {
+    font-size: 1.25rem;
+  }
+
+  &::before, &::after {
+    border-top: 1px solid $cBlack;
+    content: "";
+    width: 13%;
+
+    @include mq(lg) {
+      width: 16%;
+    }
+  }
+
+  &::before {
+    margin-left: 3em;
+
+    @include mq(lg) {
+      margin-left: 8em;
+    }
+  }
+
+  &::after {
+    margin-right: 3em;
+
+    @include mq(lg) {
+      margin-right: 8em;
+    }
+  }
+}
+
+.section-link {
+  text-align: right;
+
+  @include mq(lg) {
+    @include link-hovers();
+  }
+}
+
+.home-link {
+  text-align: center;
+
+  @include mq(lg) {
+    @include link-hovers();
+  }
+}
+
+.arrow-anime {
+  display: inline-block;
+  position: relative;
+  @extend .font-sm;
+  letter-spacing: 0.25em;
+  padding-left: 40px;
+  
+  @include mq(lg) {
+    font-size: 0.875rem;
+    letter-spacing: 0.35em;
+    padding-left: 50px; 
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2em;
+    height: 1em;
+    top: 0.3em;
+    left: 0px;
+    background-image: url(../../images/arrowright.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+  
+    @include animation(
+      $name: kf-arrow-anime,
+      $iteration-count: infinite,
+      $duration: 2s,
+      $timing-function: linear
+    );
+  }
+}
+
+.news-list {
+  padding: 20px 35px;
+  border-bottom: 1px dotted $cNewsBorder;
+  
+  @include mq(lg) {
+    padding: 30px 45px;
+    @include link-hovers();
+  }
+  
+  &:first-child {
+    border-top: 1px dotted $cNewsBorder;
+  }
+}
+
+.news-date {
+  margin-bottom: 16px;
+
+  @include mq(lg) {
+    @include link-hovers();
+  }
+
+  & > a {
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 18px;
+    line-height: 18px;
+    background: $cBlack;
+    color: $cWhite;
+    @extend .font-sm;
+    text-align: center;
+  }
+}
+
+/* フェードモード時 共通調整 */
+.swiper-fade {
+  .swiper-slide {
+    transition-property: opacity !important;
+  }
+}
+
+@keyframes kf-arrow-anime {
+  0%,
+  50%,
+  100% {
+    transform: translateX(-15%);
+  }
+  30% {
+    transform: none;
+  }
+}

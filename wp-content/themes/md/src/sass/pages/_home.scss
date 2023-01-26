@@ -1,0 +1,376 @@
+@use "../globals" as *;
+@use "../parts/common" as *;
+
+
+/*-------------------------------------------
+header
+-------------------------------------------*/
+.header {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  z-index: 10;
+
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  &.triggered {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  }
+  
+  &__inner {
+    @extend .wrapper;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    display: none;
+
+    @include mq(lg) {
+      display: block;
+    }
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+  }
+
+  &__li {
+    line-height: 1;
+
+    @include mq(lg) {
+      @include link-hovers();
+    }
+  }
+
+  &__li + &__li {
+    margin-left: 30px;
+  }
+}
+
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+.mainvisual {
+  @extend .mb-lg;
+}
+
+
+/*-------------------------------------------
+News
+-------------------------------------------*/
+.news {
+  @extend .mb-lg;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    height: calc(100% + 120px);
+    width: 100%;
+    background: $cBgGray;
+    z-index: -1;
+    
+    @include mq(lg) {
+      height: 900px;
+      bottom: -60px;
+    }
+  }
+
+  &__container {
+    @extend .wrapper;
+    z-index: 1;
+  }
+
+  &__inner {
+    margin-bottom: 20px;
+  }
+}
+
+/*-------------------------------------------
+Concept
+-------------------------------------------*/
+.concept {
+  @extend .wrapper;
+  @extend .mb-lg;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    background: $cBgYellow;
+    padding: 40px 20px;
+    overflow: hidden;
+
+    @include mq(lg) {
+      padding: 50px;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+
+    @include mq(lg) {
+      width: 30%;
+    }
+
+    &.inview {
+      & .concept__heading-inner .en::before {
+        @include animation($name: scaleX, $duration: 0.3s, $delay: 1s);
+      }
+    }
+  
+    &-inner .en {
+      position: relative;
+
+      &::before {
+        display: none;
+        position: absolute;
+        content: "";
+        height: 1px;
+        width: 100px;
+        top: 50%;
+        left: -120px;
+        background: $cBlack;
+        transform: scaleX(0);
+        transform-origin: right;
+  
+        @include mq(lg) {
+          display: block;
+        }
+      }
+    }
+
+    &-inner .section-link {
+      text-align: center;
+    }
+  }
+
+  &__lead {
+    margin: 0 auto;
+    writing-mode: vertical-rl;
+    vertical-align: top;
+    letter-spacing: 0.3em;
+    line-height: 3;
+    @extend .font-md;
+    @extend .mb-sm;
+    
+    @include mq(lg) {
+      font-size: 1rem;
+      letter-spacing: 0.5em;
+      line-height: 3.5;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}
+
+@keyframes scaleX {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+
+/*-------------------------------------------
+Flow
+-------------------------------------------*/
+.flow {
+  @extend .wrapper;
+  @extend .mb-lg;
+  
+  &__inner {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 2rem 2rem;
+  }
+}
+
+
+/*-------------------------------------------
+Works
+-------------------------------------------*/
+.works {
+  @extend .mb-lg;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -40px;
+    left: 0;
+    height: calc(100% + 80px);
+    width: 100%;
+    background: $cBgGray;
+    
+    @include mq(lg) {
+      height: calc(100% + 120px);
+      bottom: -60px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__header, &__footer {
+    @extend .wrapper;
+  }
+
+  & .section-title {
+    /* swiperによるpadding-topの差分 */
+    margin-bottom: calc(58px - 20px);
+  }
+  
+  &__inner {
+    @extend .wrapper;
+    width: 100%;
+
+    @include mq(lg) {
+      width: 90%;
+    }
+  }
+}
+
+/*-------------------------------------------
+Inquiry
+-------------------------------------------*/
+.inquiry {
+  @extend .mb-lg;
+
+  &__header, &__footer {
+    @extend .wrapper;
+  }
+  
+  &__inner {
+    @extend .wrapper;
+    width: 100%;
+
+    @include mq(lg) {
+      width: 90%;
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__message {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  &__left, &__right {
+    @extend .font-lr;
+    color: $cWhite;
+
+    @include mq(lg) {
+      font-size: 2rem;
+    }
+  }
+}
+
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+.footer {
+  background-color: $cBgGray;
+  
+  &__inner {
+    @extend .wrapper;
+    padding: 40px 0;
+    position: relative;
+  }
+
+  & .top-link {
+    position: absolute;
+    transform: rotate(-90deg);
+    right: 0%;
+    top: 0%;
+    z-index: 2;
+
+    @include mq(lg) {
+      top: -10%;
+      @include link-hovers();
+    }
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    @include mq(lg) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+  }
+
+  &__info {
+    & .info {
+      margin-top: 20px;
+      @extend .font-sm;
+    }
+  }
+
+  &__nav {
+    padding-top: 20px;
+
+    @include mq(lg) {
+      padding-top: 0;
+    }
+  }
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    
+    @include mq(lg) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__li {
+    line-height: 1;
+
+    @include mq(lg) {
+      @include link-hovers();
+    }
+  }
+
+  &__li + &__li {
+    margin-top: 20px;
+
+    @include mq(lg) {
+      margin-top: 0;
+      margin-left: 30px;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+    padding-top: 40px;
+  }
+}
