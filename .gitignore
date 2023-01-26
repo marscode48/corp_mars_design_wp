@@ -14,8 +14,8 @@ Thumbs.db
 /wp-content/*
 !/wp-content/themes
 /wp-content/themes/*
-!/wp-content/themes/mars-design
-/wp-content/themes/mars-design/css/.sass-cache/*
+!/wp-content/themes/md
+/wp-content/themes/md/css/.sass-cache/*
 /wp-includes/*
 
 # my-theme の部分を利用するテーマ名に変更
