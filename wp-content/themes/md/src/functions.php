@@ -5,7 +5,7 @@ CSSファイルの読み込み
 **************************************************/
 function my_enqueue_styles() {
   wp_enqueue_style('ress', get_theme_file_uri('css/vendors/ress.min.css'), array(), false, 'all');
-  wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP&display=swap', false);
+  wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans+JP&display=swap', false);
   wp_enqueue_style('swiper', get_theme_file_uri('css/vendors/swiper.min.css'), array(), false, 'all');
   wp_enqueue_style('style', get_stylesheet_uri(), array('ress'), false, 'all');
 }
