@@ -78,39 +78,36 @@
       
       <div class="news__inner">
         <ul class="appear up">
-          <li class="news-list item">
-            <div class="news-date">
-              <time datetime="2021-01-01">2023.01.01</time>
-              <a href="news.html">
-                NEWS
-              </a>
-            </div>
-            <p>
-              <a href="news.html">タイトルタイトルタイトルタイトル</a>
-            </p>
-          </li>
-          <li class="news-list item">
-            <div class="news-date">
-              <time datetime="2021-01-01">2023.01.01</time>
-              <a href="news.html">
-                EVENT
-              </a>
-            </div>
-            <p>
-              <a href="news.html">タイトルタイトルタイトルタイトル</a>
-            </p>
-          </li>
-          <li class="news-list item">
-            <div class="news-date">
-              <time datetime="2021-01-01">2023.01.01</time>
-              <a href="news.html">
-                NEWS
-              </a>
-            </div>
-            <p>
-              <a href="news.html">タイトルタイトルタイトルタイトル</a>
-            </p>
-          </li>
+          <?php
+            $args = array(
+              'posts_per_page' => 3
+            );
+          ?>
+          <?php $posts = get_posts($args); ?>
+          <?php foreach($posts as $post): ?>
+            <?php setup_postdata($post); ?>
+            <?php
+              $cat = get_the_category();
+              $catname = $cat[0]->cat_name;
+              $catid = $cat[0]->term_id;
+            ?>
+            <li class="news-list item">
+              <div class="news-date-cat">
+                <time datetime="2021-01-01">
+                  <?php the_time('Y.m.d'); ?>
+                </time>
+                <?php
+                  echo '<a href="' . esc_url(get_category_link($catid)) . '">' . $catname . '</a>';
+                ?>
+              </div>
+              <p>
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_title(); ?>
+                </a>
+              </p>
+            </li>
+          <?php endforeach; ?>
+          <?php wp_reset_postdata(); ?>
         </ul>
       </div>
 
