@@ -22,38 +22,37 @@
 
 <div class="news-page__body">
   <div class="news-page__main">
-      <article class="main-link appear up">
-        <ul>
-          <?php if(have_posts()): ?>
-            <?php while(have_posts()):the_post(); ?>
-              <li class="news-list item">
-              <?php
-                $cat = get_the_category();
-                $catname = $cat[0]->cat_name;
-                $catid = $cat[0]->term_id;
-              ?>
-                <div class="news-date-cat">
-                  <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
-                  <?php
-                    echo '<a href="' . esc_url(get_category_link($catid)) . '">' . $catname . '</a>';
-                  ?>
-                </div>
-                <p>
-                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </p>
-              </li>
-            <?php endwhile; ?>
-          <?php endif; ?>
-        </ul>
-      </article>
-    
-    <div class="page-nation appear up">
+    <article class="main-link appear up">
       <ul>
-        <li class="active item">1</li>
-        <li class="item"><a href="#">2</a></li>
-        <li class="item"><a href="next">次のページ</a></li>
+        <?php if(have_posts()): ?>
+          <?php while(have_posts()):the_post(); ?>
+            <li class="news-list item">
+            <?php
+              $cat = get_the_category();
+              $catname = $cat[0]->cat_name;
+              $catid = $cat[0]->term_id;
+            ?>
+              <div class="news-date-cat">
+                <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
+                <?php
+                  echo '<a href="' . esc_url(get_category_link($catid)) . '">' . $catname . '</a>';
+                ?>
+              </div>
+              <p>
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </p>
+            </li>
+          <?php endwhile; ?>
+        <?php endif; ?>
       </ul>
-    </div>
+    </article>
+
+    <!-- ページネーション -->
+    <?php
+      if (function_exists("pagination")) {
+        pagination($wp_query->max_num_pages);
+      }
+    ?>
   </div>
   <div class="news-page__side">       
     <div class="side-link appear up">
