@@ -39,3 +39,53 @@ function post_has_archive($args, $post_type) {
   return $args;
 }
 add_filter('register_post_type_args', 'post_has_archive', 10, 2);
+
+/**************************************************
+ページネーション
+**************************************************/
+function pagination($pages = '', $range = 2) {
+  $showitems = ($range * 2) + 1;
+
+  // 現在のページ数
+  global $paged;
+  if(empty($paged)) {
+    $paged = 1;
+  }
+
+  // 全ページ数
+  if($pages == '') {
+    global $wp_query;
+    $pages = $wp_query->max_num_pages;
+    if(!$pages) {
+      $pages = 1;
+    }
+  }
+
+  // ページ数が2ぺージ以上の場合のみ、ページネーションを表示
+  if(1 != $pages) {
+    echo '<div class="page-nation appear up">';
+    echo '<ul>';
+    // 1ページ目でなければ、「前のページ」リンクを表示
+    if($paged > 1) {
+      echo '<li class="prev item"><a href="' . esc_url(get_pagenum_link($paged - 1)) . '">BACK</a></li>';
+    }
+    
+    // ページ番号を表示（現在のページはリンクにしない）
+    for ($i = 1; $i <= $pages; $i++) {
+      if (1 != $pages &&(!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems )) {
+        if ($paged == $i) {
+          echo '<li class="active item">' .$i. '</li>';
+        } else {
+          echo '<li class="item"><a href="' . esc_url(get_pagenum_link($i)) . '">' .$i. '</a></li>';
+        }
+      }
+    }
+
+    // 最終ページでなければ、「次のページ」リンクを表示
+    if ($paged < $pages) {
+      echo '<li class="next item"><a href="' . esc_url(get_pagenum_link($paged + 1)) . '">NEXT</a></li>';
+    }
+    echo '</ul>';
+    echo '</div>';
+  }
+}
