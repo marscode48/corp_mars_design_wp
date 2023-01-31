@@ -27,3 +27,15 @@ function st_enqueue_scripts() {
   wp_enqueue_script('main', get_theme_file_uri('js/main.js'), array(), false, true);
 }
 add_action('wp_enqueue_scripts', 'st_enqueue_scripts');
+
+/**************************************************
+投稿のアーカイブページを作成
+**************************************************/
+function post_has_archive($args, $post_type) {
+  if ('post' == $post_type) {
+    $args['rewrite'] = true; // リライトを有効にする
+    $args['has_archive'] = 'news'; // 任意のスラッグ名
+  }
+  return $args;
+}
+add_filter('register_post_type_args', 'post_has_archive', 10, 2);
