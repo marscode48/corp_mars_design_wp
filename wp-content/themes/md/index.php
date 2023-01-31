@@ -36,7 +36,7 @@
 
       <div class="concept-parallax appear right">
         <div class="item">
-          <a href="concept.html">
+          <a href="<?php echo esc_url(home_url('/concept/')); ?>">
             <img class="gsap-image" src="<?php echo esc_url(get_theme_file_uri('images/mainconcept.jpg')); ?>" alt="">
           </a>
         </div>
@@ -55,7 +55,7 @@
           </p>
           
           <div class="section-link item">
-            <a href="concept.html" class="arrow-anime">
+            <a href="<?php echo esc_url(home_url('/concept/')); ?>" class="arrow-anime">
               Concept
             </a>
           </div>
@@ -113,7 +113,7 @@
 
       <div class="news__footer appear up">
         <div class="section-link item">
-          <a href="news.html" class="arrow-anime">
+          <a href="<?php echo esc_url(home_url('/news/')); ?>" class="arrow-anime">
             News
           </a>
         </div>
@@ -251,61 +251,61 @@
         <div class="swiper swiper-works">
           <div class="swiper-wrapper">
             
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-01.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-02.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-03.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-04.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-05.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-06.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-07.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-08.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-09.jpg')); ?>" alt=""></div>
               </article>
             </a>
 
-            <a href="works.html" class="swiper-slide">
+            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
               <article class="slide">
                 <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-10.jpg')); ?>" alt=""></div>
               </article>
@@ -318,7 +318,7 @@
 
       <div class="works__footer appear up">
         <div class="section-link item">
-          <a href="works.html" class="arrow-anime">
+          <a href="<?php echo esc_url(home_url('/works/')); ?>" class="arrow-anime">
             Works
           </a>
         </div>
@@ -348,7 +348,7 @@
 
     <div class="inquiry__footer appear up">
       <div class="section-link item">
-        <a href="inquiry.html" class="arrow-anime">
+        <a href="<?php echo esc_url(home_url('/inquiry/')); ?>" class="arrow-anime">
           Inquiry
         </a>
       </div>

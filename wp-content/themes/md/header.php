@@ -24,7 +24,7 @@
         <header id="header" class="header">
           <div class="header__inner">
             <h1 class="logo">
-              <a href="index.html">
+              <a href="<?php echo esc_url(home_url()); ?>">
                 <img src="<?php echo esc_url(get_theme_file_uri('images/logo.png')); ?>" alt="Mars Design" />
               </a>
             </h1>
