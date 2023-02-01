@@ -1707,6 +1707,9 @@ Footer
 .news-page__side h3 + ul {
   margin-top: 20px;
 }
+.news-page__side li > span {
+  display: inline-block;
+}
 .news-page__side li + li {
   margin-top: 10px;
 }

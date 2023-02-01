@@ -85,6 +85,10 @@
       margin-top: 20px;
     }
 
+    li > span {
+      display: inline-block
+    }
+
     li > a {
       @extend .font-sm;
     }
