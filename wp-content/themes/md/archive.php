@@ -11,7 +11,7 @@
   </div>
 </section>
 
-<!-- News -->
+<!-- ニュース一覧 -->
 <section class="news-page">
 
 <div class="news-page__head appear up">
@@ -59,7 +59,7 @@
     <div class="side-link appear up">
       <h3 class="item">Category</h3>
       <ul>
-      <!-- カテゴリー一覧 -->
+      <!-- カテゴリ -->
       <?php
         $categories = get_categories();
         foreach ($categories as $category) {
@@ -71,7 +71,7 @@
     <div class="side-link appear up">
       <h3 class="side-title item">Archive</h3>
       <ul>
-        <!-- 月別アーカイブ一覧 -->
+        <!-- アーカイブ -->
         <?php
           wp_get_archives (array(
             'type' => 'monthly',
