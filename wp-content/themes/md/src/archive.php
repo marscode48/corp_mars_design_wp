@@ -24,6 +24,7 @@
   <div class="news-page__main">
     <article class="main-link appear up">
       <ul>
+        <!-- ループ -->
         <?php if(have_posts()): ?>
           <?php while(have_posts()):the_post(); ?>
             <li class="news-list item">
@@ -58,36 +59,35 @@
     <div class="side-link appear up">
       <h3 class="item">Category</h3>
       <ul>
-        <li class="item">
-          <a href="#">ニュース</a>
-        </li>
-        <li class="item">
-          <a href="#">イベント</a>
-        </li>
-        <li class="item">
-          <a href="#">プレスリリース</a>
-        </li>
+      <!-- カテゴリー一覧 -->
+      <?php
+        $categories = get_categories();
+        foreach ($categories as $category) {
+          echo '<li><span class="item"><a href="' . esc_url(get_category_link($category->term_id)) . '">' . $category->name . '</a></span></li>';
+        }
+      ?>
       </ul>
     </div>
     <div class="side-link appear up">
       <h3 class="side-title item">Archive</h3>
       <ul>
-        <li class="item">
-          <a href="#">2022年12月</a>
-        </li>
-        <li class="item">
-          <a href="#">2022年11月</a>
-        </li>
-        <li class="item">
-          <a href="#">2022年10月</a>
-        </li>
+        <!-- 月別アーカイブ一覧 -->
+        <?php
+          wp_get_archives (array(
+            'type' => 'monthly',
+            'limit' => '6',
+            'format' => 'html',
+            'before' => '<span class="item">',
+            'after' => '</span>',
+          ));
+        ?>
       </ul>
     </div>
   </div>
 </div>       
 <div class="news-page__foot appear up">
   <div class="home-link item">
-    <a href="index.html" class="arrow-anime">
+    <a href="<?php echo esc_url(home_url()); ?>" class="arrow-anime">
       Home
     </a>
   </div>
