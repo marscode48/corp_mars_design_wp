@@ -4,7 +4,7 @@
 
 <!-- Top Parallax -->
 <section class="top-parallax">
-  <div class="gsap-top-image bg-inquiry"></div>
+  <div class="gsap-top-image bg-news"></div>
   <h2 class="gsap-top-title">News</h2>
   <div class="hero__footer">
     <span class="hero__scrolltext">scroll</span>
