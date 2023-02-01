@@ -28,21 +28,6 @@
                 <img src="<?php echo esc_url(get_theme_file_uri('images/logo.png')); ?>" alt="Mars Design" />
               </a>
             </h1>
-
-            <!-- モバイルメニュー -->
-            <nav class="mobile-menu">
-              <div class="logo">
-                <a href="<?php echo esc_url(home_url()); ?>">
-                  <img src="<?php echo esc_url(get_theme_file_uri('images/logo.png')); ?>" alt="">
-                </a>
-              </div>
-              <ul class="mobile-menu__ul">
-                <li class="mobile-menu__li"><a href="<?php echo esc_url(home_url('/concept/')); ?>">Concept</a></li>
-                <li class="mobile-menu__li"><a href="<?php echo esc_url(home_url('/news/')); ?>">News</a></li>
-                <li class="mobile-menu__li"><a href="<?php echo esc_url(home_url('/works/')); ?>">Works</a></li>
-                <li class="mobile-menu__li"><a href="<?php echo esc_url(home_url('/inquiry/')); ?>">Inquiry</a></li>
-              </ul>
-            </nav>
             
             <!-- デスクトップメニュー -->
             <nav class="header__nav">
