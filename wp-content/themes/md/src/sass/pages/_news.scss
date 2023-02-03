@@ -31,6 +31,54 @@
     .main-link {
       @extend .mb-sm;
     }
+
+    .main-content {
+      padding: 0 30px;
+
+      @include mq(lg) {
+        padding: 0 0 0 60px;
+      }
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @extend .mb-sm;
+      
+      & li {
+        @extend .font-sm;
+      }
+    }
+
+    .category {
+      width: 60px;
+      height: 18px;
+      line-height: 18px;
+      background: $cBlack;
+      color: $cWhite;
+      text-align: center;
+    }
+
+    .text {
+      @extend .mb-sm;
+    }
+
+    .post-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+
+      @include mq(lg) {
+        width: 350px;
+        @include link-hovers();
+      }
+      
+      & a {
+        display: inline-block;
+      }
+    }
     
     .page-nation {
 
