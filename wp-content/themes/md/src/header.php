@@ -23,11 +23,12 @@
         <!-- header -->
         <header id="header" class="header">
           <div class="header__inner">
-            <h1 class="logo">
+            <?php $html_tag = (is_home() || is_front_page()) ? 'h1' : 'div'; ?>
+            <<?php echo $html_tag; ?> class="logo">
               <a href="<?php echo esc_url(home_url()); ?>">
                 <img src="<?php echo esc_url(get_theme_file_uri('images/logo.png')); ?>" alt="Mars Design" />
               </a>
-            </h1>
+            </<?php echo $html_tag; ?>>
             
             <!-- デスクトップメニュー -->
             <nav class="header__nav">
