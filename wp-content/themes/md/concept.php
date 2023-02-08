@@ -10,7 +10,7 @@
 
 <!-- Top Parallax -->
 <section class="top-parallax">
-  <div class="gsap-top-image bg-inquiry"></div>
+  <div class="gsap-top-image bg-concept"></div>
   <h1 class="gsap-top-title">
     <?php the_title(); ?>
   </h1>

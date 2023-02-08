@@ -771,6 +771,30 @@ Theme Name: md
     background: url("images/parallax-4.jpg") no-repeat top/cover;
   }
 }
+.top-parallax .gsap-top-image.bg-single {
+  background: url("images/sp-parallax-5.jpg") no-repeat top/cover;
+}
+@media screen and (min-width: 960px) {
+  .top-parallax .gsap-top-image.bg-single {
+    background: url("images/parallax-5.jpg") no-repeat top/cover;
+  }
+}
+.top-parallax .gsap-top-image.bg-category {
+  background: url("images/sp-parallax-6.jpg") no-repeat top/cover;
+}
+@media screen and (min-width: 960px) {
+  .top-parallax .gsap-top-image.bg-category {
+    background: url("images/parallax-6.jpg") no-repeat top/cover;
+  }
+}
+.top-parallax .gsap-top-image.bg-date {
+  background: url("images/sp-parallax-7.jpg") no-repeat top/cover;
+}
+@media screen and (min-width: 960px) {
+  .top-parallax .gsap-top-image.bg-date {
+    background: url("images/parallax-7.jpg") no-repeat top/cover;
+  }
+}
 .top-parallax .gsap-top-title {
   color: #FFFFFF;
   font-size: 1.5rem;

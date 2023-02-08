@@ -53,6 +53,30 @@
         background: url("images/parallax-4.jpg") no-repeat top / cover;
       }
     }
+
+    &.bg-single {
+      background: url("images/sp-parallax-5.jpg") no-repeat top / cover;
+      
+      @include mq(lg) {
+        background: url("images/parallax-5.jpg") no-repeat top / cover;
+      }
+    }
+
+    &.bg-category {
+      background: url("images/sp-parallax-6.jpg") no-repeat top / cover;
+      
+      @include mq(lg) {
+        background: url("images/parallax-6.jpg") no-repeat top / cover;
+      }
+    }
+
+    &.bg-date {
+      background: url("images/sp-parallax-7.jpg") no-repeat top / cover;
+      
+      @include mq(lg) {
+        background: url("images/parallax-7.jpg") no-repeat top / cover;
+      }
+    }
   }
 
   & .gsap-top-title {
