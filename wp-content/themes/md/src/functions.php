@@ -1,6 +1,37 @@
 <?php
 
 /**************************************************
+タイトルタグ、サムネイル画像を出力
+**************************************************/ 
+function setup_my_theme() {
+  add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'setup_my_theme');
+
+/**************************************************
+カスタム投稿タイプの追加
+**************************************************/
+function add_custom_post_type() {
+  register_post_type('works', [
+    'label' => 'コーディネート実例',
+    'public' => true,
+    'has_archive' => true,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-store',
+    'show_in_rest' => true,
+    'supports' => ['thumbnail', 'title', 'editor']
+    ]
+  );
+}
+add_action('init', 'add_custom_post_type');
+
+/**************************************************
+カスタム投稿のシングルページを非表示
+**************************************************/
+add_filter('works_rewrite_rules', '__return_empty_array');
+// 非表示から
+
+/**************************************************
 CSSファイルの読み込み
 **************************************************/
 function my_enqueue_styles() {
