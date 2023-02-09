@@ -336,7 +336,7 @@
     </div>
 
     <div class="inquiry__inner">
-      <a class="inquiry__link" href="inquiry.html">
+      <a class="inquiry__link" href="<?php echo esc_url(home_url('/inquiry/')); ?>">
         <div class="inquiry-parallax">
           <div class="inquiry__message">
             <p class="inquiry__left">コーディネートのご依頼</p>
