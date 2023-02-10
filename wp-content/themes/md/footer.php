@@ -36,7 +36,7 @@
 
             <div class="footer__copyright appear up">
               <div class="item">
-                &copy; <?php echo bloginfo('name'); ?>
+                &copy; <?php echo esc_html(bloginfo('name')); ?>
               </div>
             </div>
           </div>

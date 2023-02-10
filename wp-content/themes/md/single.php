@@ -33,7 +33,7 @@
             <article class="main-content appear up">
             <ul class="meta">
                 <li class="date item"><?php the_time('Y-m-d'); ?></li>
-                <li class="category item"><?php echo $catname; ?></li>
+                <li class="category item"><?php echo esc_html($catname); ?></li>
               </ul>
               <div class="text item">
                 <?php the_content(); ?>

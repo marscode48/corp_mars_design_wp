@@ -22,7 +22,7 @@
       ?>
 
       <h2 class="page-title item">
-        <?php echo $catname; ?>
+        <?php echo esc_html($catname); ?>
       </h2>
     </div>
 
@@ -37,7 +37,7 @@
                   <div class="news-date-cat">
                     <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
                     <?php
-                      echo '<a href="' . esc_url(get_category_link($catid)) . '">' . $catname . '</a>';
+                      echo '<a href="' . esc_url(get_category_link($catid)) . '">' . esc_html($catname) . '</a>';
                     ?>
                   </div>
                   <p>
