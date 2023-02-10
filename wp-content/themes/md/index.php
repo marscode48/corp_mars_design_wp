@@ -93,9 +93,7 @@
             ?>
             <li class="news-list item">
               <div class="news-date-cat">
-                <time datetime="2021-01-01">
-                  <?php the_time('Y.m.d'); ?>
-                </time>
+                <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
                 <?php
                   echo '<a href="' . esc_url(get_category_link($catid)) . '">' . $catname . '</a>';
                 ?>
