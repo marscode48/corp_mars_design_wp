@@ -42,7 +42,7 @@
                 <div class="slide-title"><?php the_title(); ?></div>
                 <div class="slide-text"><?php the_content(); ?></div>
               </div>
-          </div>
+            </div>
         <?php endforeach; ?>
         <?php wp_reset_postdata(); ?>
       </div>

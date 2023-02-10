@@ -248,69 +248,26 @@
         <!-- Works Loop Slider -->
         <div class="swiper swiper-works">
           <div class="swiper-wrapper">
-            
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-01.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
 
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-02.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-03.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-04.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-05.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-06.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-07.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-08.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-09.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
-              <article class="slide">
-                <div class="slide-media img-cover"><img src="<?php echo esc_url(get_theme_file_uri('images/work-10.jpg')); ?>" alt=""></div>
-              </article>
-            </a>
-
+            <?php
+            $args = array(
+              'post_type' => 'works',
+              'posts_per_page' => 10
+            );
+            ?>
+            <?php $posts = get_posts($args); ?>
+            <?php foreach($posts as $post): ?>
+              <?php setup_postdata($post); ?>            
+                <a href="<?php echo esc_url(home_url('/works/')); ?>" class="swiper-slide">
+                  <article class="slide">
+                    <div class="slide-media img-cover">
+                      <img src="<?php the_post_thumbnail_url('full'); ?>" alt="">
+                    </div>
+                  </article>
+                </a>
+            <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
           </div>
-          
         </div>
       </div>
 
