@@ -29,11 +29,9 @@
     </div>
   </div>
 
-
   <!-- Concept -->
   <section id="concept" class="concept">
     <div class="concept__inner">
-
       <div class="concept-parallax appear right">
         <div class="item">
           <a href="<?php echo esc_url(home_url('/concept/')); ?>">
@@ -53,18 +51,15 @@
             <span class="item">素材と装飾</span>
             <span class="item">耐久と機能</span>
           </p>
-          
           <div class="section-link item">
             <a href="<?php echo esc_url(home_url('/concept/')); ?>" class="arrow-anime">
               Concept
             </a>
           </div>
-
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- News -->
   <section id="news" class="news">
@@ -118,7 +113,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- Flow -->
   <section id="flow" class="flow">
@@ -223,7 +217,6 @@
               </div>
             </div>
           </div>
-
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
@@ -280,6 +273,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- Inquiry -->
   <section id="inquiry" class="inquiry">
