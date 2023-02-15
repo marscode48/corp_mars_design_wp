@@ -122,7 +122,7 @@ function clean() {
 
 function startAppServer() {
   browserSync.init({
-    proxy : "marsdesign.local", // ローカルに合わせる
+    proxy : "test.marsdesign.local", // ローカルに合わせる
   });
 
   watch('./src/sass/**/*.scss', styles);
