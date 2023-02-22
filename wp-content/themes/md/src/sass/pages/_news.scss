@@ -1,0 +1,152 @@
+@use "../globals" as *;
+@use "../parts/common" as *;
+/* ニュース画面スタイル */
+.news-page {
+  @extend .wrapper;
+
+  &__head {
+    @extend .mb-lg;
+  }
+
+  &__body {
+    @extend .mb-lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include mq(lg) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__main {
+    margin-bottom: 80px;
+
+    @include mq(lg) {
+      width: 65%;
+      margin-bottom: 0;
+    }
+
+    .main-link {
+      @extend .mb-sm;
+    }
+
+    .main-content {
+      padding: 0 30px;
+
+      @include mq(lg) {
+        padding: 0 0 0 60px;
+      }
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @extend .mb-sm;
+      
+      & li {
+        @extend .font-sm;
+      }
+    }
+
+    .category {
+      width: 60px;
+      height: 18px;
+      line-height: 18px;
+      background: $cBlack;
+      color: $cWhite;
+      text-align: center;
+    }
+
+    .text {
+      @extend .mb-sm;
+    }
+
+    .post-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+
+      @include mq(lg) {
+        width: 350px;
+        @include link-hovers();
+      }
+      
+      & a {
+        display: inline-block;
+      }
+    }
+    
+    .page-nation {
+
+      & ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      & li {
+        padding: 0 10px;
+        line-height: 1;
+
+        @include mq(lg) {
+          @include link-hovers();
+        }
+        
+        & > a {
+          display: inline-block;
+        }
+      }
+
+      & .active {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__side {
+
+    @include mq(lg) {
+      width: 33%;
+      padding-left: 80px;
+    }
+
+    .side-link {
+      @include mq(lg) {
+        @include link-hovers();
+      }    
+    }
+
+    .side-link + .side-link {
+      margin-top: 60px;
+    }
+
+    h3 {
+      @extend .font-md;
+      font-weight: bold;
+    }
+
+    h3 + ul {
+      margin-top: 20px;
+    }
+
+    li > span {
+      display: inline-block
+    }
+
+    li > a {
+      @extend .font-sm;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+  }
+
+  &__foot {
+    @extend .mb-lg;
+  }
+}
