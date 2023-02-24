@@ -4,6 +4,7 @@
 タイトルタグ、サムネイル画像を出力
 **************************************************/ 
 function setup_my_theme() {
+  add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'setup_my_theme');
@@ -29,7 +30,6 @@ add_action('init', 'add_custom_post_type');
 カスタム投稿のシングルページを非表示
 **************************************************/
 add_filter('works_rewrite_rules', '__return_empty_array');
-// 非表示から
 
 /**************************************************
 CSSファイルの読み込み
@@ -70,6 +70,41 @@ function post_has_archive($args, $post_type) {
   return $args;
 }
 add_filter('register_post_type_args', 'post_has_archive', 10, 2);
+
+/**************************************************
+各ページのタイトルを変更
+**************************************************/
+function change_title( $title ) {
+  // 投稿タイトル
+  if (is_post_type_archive('works')) {
+    $title['title'] = 'Works';
+  } elseif (is_archive()) {
+    $title['title'] = 'News';
+  }
+  // カテゴリータイトル
+  if (is_category('EVENT')) {
+    $title['title'] = 'カテゴリー別: EVENT';
+  } elseif (is_category('NEWS')) {
+    $title['title'] = 'カテゴリー別: NEWS';
+  } elseif (is_category('PRESS')) {
+    $title['title'] = 'カテゴリー別: PRESS';
+  }
+  // 日付タイトル
+  if (is_date()) {
+    $title['title'] = '月別: '.get_the_date('Y年n月');
+  }
+  return $title;
+}
+add_filter('document_title_parts', 'change_title');
+
+/**************************************************
+タイトルを区切り文字に書き換え
+**************************************************/
+function rewrite_separator($separator) {
+  $separator = '|';
+  return $separator;
+}
+add_filter('document_title_separator', 'rewrite_separator');
 
 /**************************************************
 ページネーション
